@@ -15,25 +15,29 @@ export default function DragDropCard(props) {
     ));
 
     return (
-        <Card className="container" sx={{marginTop:"50px",backgroundColor:"#f4fbfe"}}>
+        <Card className="container" sx={{ marginTop: "20px", backgroundColor: "#f4fbfe",borderRadius:"19px" }}>
             <section class="sectionCardDragDrop">
-                Hello
+                <div class="textSectionCardDragDrop"> Visor PDF</div>
             </section>
             <div
                 style={{
                     cursor: "pointer",
-                    height: "200px",
+                    width: "100vw",
+                    height: "100vw",
+                    marginTop: "70px"
                 }}
                 {...getRootProps({ className: "dropzone" })}
             >
                 <input {...getInputProps()} />
-                <CloudUploadIcon sx={{ color:"#737373 !important" }}/>
-                <p>Arrastra y suelta archivos aquí o haz click para seleccionar archivos</p>
+                <CloudUploadIcon sx={{ color: "#737373", fontSize: "60px" }} />
+                <p style={{
+                    color: "#737373"
+                }}>Arrastra y suelta archivos aquí o haz click para seleccionar archivos</p>
             </div>
-            <aside>
+           {/*  <aside>
                 <h4>Files</h4>
                 <ul>{files}</ul>
-            </aside>
+            </aside> */}
         </Card>
     );
 }

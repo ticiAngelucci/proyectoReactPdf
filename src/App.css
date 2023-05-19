@@ -32,10 +32,18 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
-.sectionCardDragDrop{
-  background-color:#48c1f4;
+
+.sectionCardDragDrop {
+  background-color: #48c1f4;
+  color: white;
+}
+
+.textSectionCardDragDrop {
+  text-align: left;
+  padding: 16px;
 }

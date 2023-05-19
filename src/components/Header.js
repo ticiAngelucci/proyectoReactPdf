@@ -11,7 +11,7 @@ import logo from "../img/logo.png";
 export default function MenuAppBar() {
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static" sx={{ backgroundColor: "#48c1f4 !important" }}>
+            <AppBar position="static" sx={{ backgroundColor: "#48c1f4 !important",boxShadow: "none" }}>
                 <Toolbar sx={{ flexDirection: { xs: 'column', sm: 'row' }, maxWidth: { sm: "500px",md:"900px", lg: "1200px" }, width: { md: "100%" }, margin: "auto" }} >
                     <IconButton
                         size="large"
