@@ -33,9 +33,9 @@ export default function MenuAppBar() {
                             aria-label="account of current user"
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
-                            color="inherit"
+                            sx={{ color: "white !important" }}
                         >
-                            <AccountCircle />
+                            <AccountCircle sx={{ backgroundColor: "transparent !important" }} />
                         </IconButton>
                     </div>
                 </Toolbar>
