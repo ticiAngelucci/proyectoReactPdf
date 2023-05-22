@@ -13,7 +13,6 @@ export default function Checkbox(props) {
                     defaultChecked={done}
                     onChange={onChange}
                 />
-                
                 <div>{description}</div>
             </label>
         </Fragment>

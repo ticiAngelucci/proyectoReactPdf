@@ -8,7 +8,6 @@ export default function EmailAdd(props) {
     const handleSubmit = e => {
         e.preventDefault();
         handleAddItem({
-            done: false,
             id: (+new Date()).toString(),
             description
         });
@@ -16,16 +15,20 @@ export default function EmailAdd(props) {
     };
     return (
         <form onSubmit={handleSubmit}>
-            <div className="file-input">
+            <div style={{
+                        width: '100%',
+                        maxWidth: 500,
+                        backgroundColor: "#f4fbfe",
+                    }}>
                 <TextField
                     type="email"
                     label="email"
                     id="email"
                     variant="filled"
                     sx={{
-                        width: 500,
-                        maxWidth: '100%',
-                        backgroundColor: "#f4fbfe"
+                        width: '100%',
+                        maxWidth: 500,
+                        backgroundColor: "#f4fbfe",
                     }}
                     value={description}
                     onChange={e => setDescription(e.target.value)}

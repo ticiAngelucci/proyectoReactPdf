@@ -3,15 +3,25 @@ import { Worker, Viewer } from '@react-pdf-viewer/core';
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import { defaultLayoutPlugin, ToolbarProps, ToolbarSlot } from '@react-pdf-viewer/default-layout';
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
-import SearchIcon from '@mui/icons-material/Search';
 import AddIcon from '@mui/icons-material/Add';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import RemoveIcon from '@mui/icons-material/Remove';
 
-export default function PdfViewer() {
-
-  const [pdfFile, setPdfFile] = useState(null);
+export default function PdfViewer(props) {
+  const { pdf } = props; 
+  const [file,setFile] = useState();  
+  const onChangeStatus = e => {
+		const { name, checked } = e.target;
+		const updateList = pdf.map(item => ({
+			...item,
+		}));
+		setFile(updateList);
+	};
+	/* const chk = pdf.map(item => (
+		<div key={item.id} data={item} onChange={onChangeStatus} />
+	)); */
+   /* const [pdfFile, setPdfFile] = useState(null);
   const [pdfError, setPdfError] = useState('');
   const allowedFiles = ['application/pdf'];
   const handleFile = (e) => {
@@ -23,6 +33,7 @@ export default function PdfViewer() {
         reader.onloadend = (e) => {
           setPdfError('');
           setPdfFile(e.target.result);
+          console.log("set pdf visor",pdfFile)
         }
       }
       else {
@@ -33,7 +44,7 @@ export default function PdfViewer() {
     else {
       console.log('please select a PDF');
     }
-  }
+  } */
   const renderToolbar = (Toolbar) => (
     <Toolbar>
       {(slots) => {
@@ -140,29 +151,18 @@ export default function PdfViewer() {
   });
 
   return (
-    <div className="container">
-      <form>
-
-        <label><h5>Upload PDF</h5></label>
-        <br></br>
-
-        <input type='file' className="form-control"
-          onChange={handleFile}></input>
-        {pdfError && <span className='text-danger'>{pdfError}</span>}
-
-      </form>
-
+    <div>
       <h5>View PDF</h5>
       <div className="pdf-container">
 
-        {pdfFile && (
+        {pdf && (
           <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
-            <Viewer fileUrl={pdfFile}
+            <Viewer fileUrl={pdf}
               plugins={[defaultLayoutPluginInstance]}></Viewer>
           </Worker>
         )}
 
-        {!pdfFile && <>No file is selected yet</>}
+        {!pdf && <>No file is selected yet</>}
 
       </div>
 
