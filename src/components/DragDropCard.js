@@ -15,19 +15,15 @@ export default function DragDropCard(props) {
                 setDescription(base64)
                 handleAddItem({
                     id: (+new Date()).toString(),
-                    base64:base64
+                    docname:file.name,
+                    documento:base64,
+                    fecha:file.lastModifiedDate,
                 }); 
             }
           })
       }, [])
     const { acceptedFiles, getRootProps, getInputProps,fileRejections } = useDropzone({onDrop,accept: {'application/pdf': []},maxFiles:1});
 
-    const files = acceptedFiles.map(file =>(
-        <li key={file.path}>
-            {file.path} - {file.size} bytes
-        </li>
-        
-    ));
     const fileRejectionItems = fileRejections.map(({ file, errors  }) => { 
         return (
           <li key={file.path}>
@@ -43,11 +39,7 @@ export default function DragDropCard(props) {
     
     return (
         <Card className="container" sx={{ marginTop: "20px", backgroundColor: "#f4fbfe",borderRadius:"19px" }}>
-            <aside>
-                <h4>Files</h4>
-                <ul>{files}</ul>
-                <div>{fileRejectionItems}</div>
-            </aside> 
+            {fileRejectionItems.length!==0?<div>Error,solo se puede agregar un archivo</div>:null}
             <section class="sectionCardDragDrop">
                 <div class="textSectionCardDragDrop"> Visor PDF</div>
             </section>
