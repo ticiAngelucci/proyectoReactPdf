@@ -8,7 +8,6 @@ export default function EmailAdd(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     handleAddItem({
-      id: (+new Date()).toString(),
       description,
     });
     setDescription("");

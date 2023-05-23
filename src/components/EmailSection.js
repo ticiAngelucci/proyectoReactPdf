@@ -12,25 +12,22 @@ export default function EmailSection(props) {
 
   function createPost() {
     pdf.map((data) => {
-        axios
-      .post(baseURL, {
-        
-        docname: data.docname,
-        documento:data.documento ,
-        metadata:{
-            cargo:"tester",
-            razon:"prueba de desarrollo",
-            localidad:"Mendoza",
-        },
-        lista_email:{
-            email:"",
-        },
-        fecha: data.fecha,
-        url_callback:"https://www.jus.mendoza.gob.ar/test_firma"
-      })
-      .then((response) => {
-        console.log("oi",response.data);
-      });
+      axios
+        .post(baseURL, {
+          docname: data.docname,
+          documento: data.documento,
+          metadata: {
+            cargo: "tester",
+            razon: "prueba de desarrollo",
+            localidad: "Mendoza",
+          },
+          lista_email: list.map((data)=>data.description),
+          fecha: data.fecha,
+          url_callback: "https://www.jus.mendoza.gob.ar/test_firma",
+        })
+        .then((response) => {
+          console.log("oi", response.data);
+        });
     });
   }
 
@@ -39,7 +36,7 @@ export default function EmailSection(props) {
   const handleAddItem = (addItem) => {
     setList([...list, addItem]);
   };
-  console.log("Lista",list)
+  console.log("Lista", list);
   return (
     <Grid
       container
