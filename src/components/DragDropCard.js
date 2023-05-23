@@ -1,7 +1,7 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { useDropzone } from "react-dropzone";
-import Card from "@mui/material/Card";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import Card from "@mui/material/Card";
+import React, { useCallback, useState } from "react";
+import { useDropzone } from "react-dropzone";
 
 export default function DragDropCard(props) {
   const onDrop = useCallback((acceptedFiles) => {
@@ -47,7 +47,7 @@ export default function DragDropCard(props) {
       }}
     >
       {fileRejectionItems.length !== 0 ? (
-        <div>Error,solo se puede agregar un archivo</div>
+        <div>Error,solo se puede agregar un archivo pdf</div>
       ) : null}
       <section class="sectionCardDragDrop">
         <div class="textSectionCardDragDrop"> Visor PDF</div>
