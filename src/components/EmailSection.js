@@ -21,7 +21,7 @@ export default function EmailSection(props) {
             razon: "prueba de desarrollo",
             localidad: "Mendoza",
           },
-          lista_email: list.map((data)=>data.description),
+          lista_email: list.map((data) => data.description),
           fecha: data.fecha,
           url_callback: "https://www.jus.mendoza.gob.ar/test_firma",
         })
