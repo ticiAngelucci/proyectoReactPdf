@@ -10,7 +10,6 @@ function App() {
   const handleAddItem = (addItem) => {
     setPdf([...pdf, addItem]);
   };
-  console.log("pdf", pdf);
   return (
     <div class="App">
       <Header />

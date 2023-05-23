@@ -26,17 +26,15 @@ export default function EmailSection(props) {
           url_callback: "https://www.jus.mendoza.gob.ar/test_firma",
         })
         .then((response) => {
-          console.log("oi", response.data);
+          console.log("Enviado", response.data);
         });
     });
   }
 
   const [list, setList] = useState([]);
-  list.map((data) => console.log(data.description));
   const handleAddItem = (addItem) => {
     setList([...list, addItem]);
   };
-  console.log("Lista", list);
   return (
     <Grid
       container
