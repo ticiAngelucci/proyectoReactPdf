@@ -9,38 +9,37 @@ const baseURL = "https://jsonplaceholder.typicode.com/posts";
 
 export default function EmailSection(props) {
   const { pdf } = props;
-  /* const [post, setPost] = useState(null);
-
-  React.useEffect(() => {
-    axios.get(`${baseURL}/1`).then((response) => {
-      setPost(response.data);
-    });
-  }, []);
 
   function createPost() {
-    axios
+    pdf.map((data) => {
+        axios
       .post(baseURL, {
-        docname: "Hello World!",
-        documento: "This is a new post.",
+        
+        docname: data.docname,
+        documento:data.documento ,
         metadata:{
             cargo:"tester",
             razon:"prueba de desarrollo",
             localidad:"Mendoza",
         },
-        fecha:"",
+        lista_email:{
+            email:"",
+        },
+        fecha: data.fecha,
         url_callback:"https://www.jus.mendoza.gob.ar/test_firma"
       })
       .then((response) => {
-        setPost(response.data);
+        console.log("oi",response.data);
       });
+    });
   }
 
-  if (!post) return "No post!"; */
   const [list, setList] = useState([]);
   list.map((data) => console.log(data.description));
   const handleAddItem = (addItem) => {
     setList([...list, addItem]);
   };
+  console.log("Lista",list)
   return (
     <Grid
       container
@@ -61,7 +60,7 @@ export default function EmailSection(props) {
           color: "white",
           borderRadius: "19px",
         }}
-        /* onClick={createPost} */
+        onClick={createPost}
       >
         Enviar
       </Button>
