@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import TextField from "@mui/material/TextField";
 import AddIcon from "@mui/icons-material/Add";
+import TextField from "@mui/material/TextField";
+import React, { useState } from "react";
 
 export default function EmailAdd(props) {
   const { handleAddItem } = props;
@@ -13,12 +13,11 @@ export default function EmailAdd(props) {
     setDescription("");
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form style={{margin: "20px"}} onSubmit={handleSubmit}>
       <div
         style={{
           width: "100%",
           maxWidth: 500,
-          backgroundColor: "#f4fbfe",
         }}
       >
         <TextField
@@ -29,16 +28,11 @@ export default function EmailAdd(props) {
           sx={{
             width: "100%",
             maxWidth: 500,
-            backgroundColor: "#f4fbfe",
           }}
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-        <button
-          style={{
-            background: "none",
-            border: "none",
-          }}
+        <button class="add"
           disabled={description ? "" : "disabled"}
         >
           <AddIcon />

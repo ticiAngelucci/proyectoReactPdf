@@ -9,7 +9,7 @@ const baseURL = "https://proyectoReact.com/civisign/serviciofirma";
 
 export default function EmailSection(props) {
   const { pdf } = props;
-  const [error,setError] = useState("null");
+  const [error, setError] = useState("null");
   const createPost = () => {
     if (list.length !== 0) {
       pdf.map((data) => {
@@ -44,28 +44,45 @@ export default function EmailSection(props) {
   return (
     <Grid
       container
-      direction={{ xs: "column", sm: "row" }}
+      direction="column"
       justifyContent="center"
       alignItems="flex-start"
       sx={{ borderRadius: "18px" }}
     >
       <div class="sectionCardDragDrop">Firmantes</div>
-      <div>
-        <EmailAdd handleAddItem={handleAddItem} />
-        <EmailList list={list} setList={setList} />
-      </div>
-      {error === 1 ? <div>Error agregar almenos un email</div> : null}
-      <Button
-        sx={{
-          marginTop: "20px",
-          backgroundColor: "#48c1f4",
+      <EmailAdd handleAddItem={handleAddItem} />
+      {error === 1 ? <div style={{
+          backgroundColor: "#cb3234",
           color: "white",
-          borderRadius: "19px",
+          margin: "20px",
+          borderRadius: "23px",
+          padding: "10px",
+        }}>Error agregar almenos un email</div> : null}
+      <div
+        style={{
+          backgroundColor: "#f4fbfe",
+          margin: "20px",
+          borderRadius: "23px",
+          padding: "10px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-end",
         }}
-        onClick={createPost}
       >
-        Enviar
-      </Button>
+        <EmailList list={list} setList={setList} />
+        <Button
+          sx={{
+            marginTop: "20px",
+            backgroundColor: "#48c1f4",
+            color: "white",
+            borderRadius: "19px",
+            boxShadow: "0px 8px 5px rgba(0, 0, 0, 0.1)",
+          }}
+          onClick={createPost}
+        >
+          Enviar
+        </Button>
+      </div>
     </Grid>
   );
 }

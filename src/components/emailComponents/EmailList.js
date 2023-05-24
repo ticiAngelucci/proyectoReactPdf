@@ -1,3 +1,4 @@
+import Button from "@mui/material/Button";
 import React from "react";
 import Checkbox from "./Checkbox";
 export default function EmailList(props) {
@@ -16,15 +17,23 @@ export default function EmailList(props) {
     setList(updateList);
   };
   const chk = list.map((item) => (
-    <Checkbox key={item.id} data={item} onChange={onChangeStatus} />
+    <div style={{ width: "60%" }}>
+      <Checkbox key={item.id} data={item} onChange={onChangeStatus} />
+      <hr></hr>
+    </div>
   ));
   return (
     <div>
+      <h2 style={{ textAlign: "initial" }}>Firmantes a notificar</h2>
+      <p style={{ textAlign: "initial" }}>
+        Los siguientes contactos serán notificados para firmar el presente
+        documento.
+      </p>
       {list.length ? chk : "No email"}
       {list.length ? (
-        <p>
-          <button onClick={onClickRemoveItem}>Delete all done</button>
-        </p>
+        <Button onClick={onClickRemoveItem} variant="outlined" color="error">
+          Eliminar
+        </Button>
       ) : null}
     </div>
   );
