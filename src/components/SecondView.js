@@ -15,11 +15,9 @@ export default function SecondView(props) {
   };
   function CardView() {
     return (
-      <Grid item xs={12} md={4}>
         <Paper sx= {{width: "320px",margin:"auto"}}>
           <EmailSection pdf={pdf} />
         </Paper>
-      </Grid>
     );
   }
 
@@ -37,12 +35,14 @@ export default function SecondView(props) {
             <PdfViewer pdf={pdf} />
           </Paper>
         </Grid>
-        <div style={{ width: "100%",marginTop:"10px" }}>
+        <Grid item xs={12} md={4}>
+        <div style={{ width: "100%",marginTop:"10px",marginBottom:"10px" }}>
           <Button onClick={toggleCard} variant="outlined">
             {showCard ? "Ocultar lista emails" : "Mostrar lista emails"}
           </Button>
         </div>
         {showCard && <CardView />}
+        </Grid>
       </Grid>
     </Box>
   );
