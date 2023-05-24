@@ -104,8 +104,6 @@ export default function PdfViewer(props) {
           ></Viewer>
         </Worker>
       )}
-
-      {!pdf && <>No file is selected yet</>}
     </div>
   );
 }
