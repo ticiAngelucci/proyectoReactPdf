@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import EmailAdd from "./emailComponents/EmailAdd";
 import EmailList from "./emailComponents/EmailList";
 
-const baseURL = "https://jsonplaceholder.typicode.com/posts";
+const baseURL = "https://proyectoReact.com/civisign/serviciofirma";
 
 export default function EmailSection(props) {
   const { pdf } = props;

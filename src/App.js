@@ -1,7 +1,7 @@
-import "./App.css";
 import { useState } from "react";
-import Header from "./components/Header";
+import "./App.css";
 import DragDropCard from "./components/DragDropCard";
+import Navbar from "./components/Navbar";
 import SecondView from "./components/SecondView";
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
   };
   return (
     <div class="App">
-      <Header />
+      <Navbar />
       {pdf.length !== 0 ? (
         <SecondView pdf={pdf} />
       ) : (

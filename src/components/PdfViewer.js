@@ -1,16 +1,13 @@
-import { useState } from "react";
-import { Worker, Viewer } from "@react-pdf-viewer/core";
-import "@react-pdf-viewer/core/lib/styles/index.css";
-import {
-  defaultLayoutPlugin,
-  ToolbarProps,
-  ToolbarSlot,
-} from "@react-pdf-viewer/default-layout";
-import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 import AddIcon from "@mui/icons-material/Add";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+
 import RemoveIcon from "@mui/icons-material/Remove";
+import { Viewer, Worker } from "@react-pdf-viewer/core";
+import "@react-pdf-viewer/core/lib/styles/index.css";
+import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
+import "@react-pdf-viewer/default-layout/lib/styles/index.css";
+import { useState } from "react";
 
 export default function PdfViewer(props) {
   const { pdf } = props;
@@ -30,55 +27,39 @@ export default function PdfViewer(props) {
 
         return (
           <div style={{ alignItems: "center", display: "flex" }}>
-            <div style={{ padding: "0px 2px" }}>
+            <div class="textPdfViewer">{pdf[0].docname.split(".pdf")}</div>
+            <div class="itemsPdfViewer">
               <ZoomOut>
                 {(props) => (
-                  <button
-                    style={{
-                      backgroundColor: "#357edd",
-                      border: "none",
-                      borderRadius: "4px",
-                      color: "#ffffff",
-                      cursor: "pointer",
-                      padding: "8px",
-                    }}
-                    onClick={props.onClick}
-                  >
+                  <button class="buttonPdfZoomOut" onClick={props.onClick}>
                     <RemoveIcon />
                   </button>
                 )}
               </ZoomOut>
             </div>
-            <div style={{ padding: "0px 2px" }}>
+            <div class="itemsPdfViewer">
               <ZoomIn>
                 {(props) => (
-                  <button
-                    style={{
-                      backgroundColor: "#357edd",
-                      border: "none",
-                      borderRadius: "4px",
-                      color: "#ffffff",
-                      cursor: "pointer",
-                      padding: "8px",
-                    }}
-                    onClick={props.onClick}
-                  >
+                  <button class="buttonPdfZoomIn" onClick={props.onClick}>
                     <AddIcon />
                   </button>
                 )}
               </ZoomIn>
             </div>
+            <div style={{ padding: "0px 2px", width: "2rem" }}>
+              <CurrentPageInput />
+            </div>
+            <div class="itemsPdfViewer">
+              {" "}
+              de <NumberOfPages />
+            </div>
             <div style={{ padding: "0px 2px", marginLeft: "auto" }}>
               <GoToPreviousPage>
                 {(props) => (
                   <button
+                    class="buttonLeftRight"
                     style={{
-                      backgroundColor: props.isDisabled ? "#96ccff" : "#357edd",
-                      border: "none",
-                      borderRadius: "4px",
-                      color: "#ffffff",
                       cursor: props.isDisabled ? "not-allowed" : "pointer",
-                      padding: "8px",
                     }}
                     disabled={props.isDisabled}
                     onClick={props.onClick}
@@ -88,24 +69,13 @@ export default function PdfViewer(props) {
                 )}
               </GoToPreviousPage>
             </div>
-            <div style={{ padding: "0px 2px", width: "4rem" }}>
-              <CurrentPageInput />
-            </div>
-            <div style={{ padding: "0px 2px" }}>
-              {" "}
-              de <NumberOfPages />
-            </div>
-            <div style={{ padding: "0px 2px" }}>
+            <div class="itemsPdfViewer">
               <GoToNextPage>
                 {(props) => (
                   <button
+                    class="buttonLeftRight"
                     style={{
-                      backgroundColor: props.isDisabled ? "#96ccff" : "#357edd",
-                      border: "none",
-                      borderRadius: "4px",
-                      color: "#ffffff",
                       cursor: props.isDisabled ? "not-allowed" : "pointer",
-                      padding: "8px",
                     }}
                     disabled={props.isDisabled}
                     onClick={props.onClick}
