@@ -19,15 +19,15 @@ export default function EmailList(props) {
   };
   /* En listMapeo estamos creando la lista con su componente para que sea dinamica,depende de cuantos registros tenga list*/
   const listMapeo = list.map((item) => (
-    <div style={{ width: "60%" }}>
+    <div class="checkbox">
       <Checkbox key={item.id} data={item} onChange={onChangeStatus} />
       <hr></hr>
     </div>
   ));
   return (
     <div>
-      <h2 style={{ textAlign: "initial" }}>Firmantes a notificar</h2>
-      <p style={{ textAlign: "initial" }}>
+      <h2 class="firmantesText">Firmantes a notificar</h2>
+      <p class="firmantesText">
         Los siguientes contactos serán notificados para firmar el presente
         documento.
       </p>

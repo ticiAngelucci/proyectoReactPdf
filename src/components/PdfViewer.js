@@ -26,7 +26,7 @@ renderToolbar lo utilizaremos para customizar el toolbar que viene por defecto e
         } = slots;
 
         return (
-          <div style={{ alignItems: "center", display: "flex" }}>
+          <div class="containerTool">
             <div class="textPdfViewer">{pdf[0].docname.split(".pdf")}</div>
             <div class="itemsPdfViewer">
               <ZoomOut>
@@ -46,14 +46,14 @@ renderToolbar lo utilizaremos para customizar el toolbar que viene por defecto e
                 )}
               </ZoomIn>
             </div>
-            <div style={{ padding: "0px 2px", width: "2rem" }}>
+            <div class="currentPageInput">
               <CurrentPageInput />
             </div>
             <div class="itemsPdfViewer">
               {" "}
               de <NumberOfPages />
             </div>
-            <div style={{ padding: "0px 2px", marginLeft: "auto" }}>
+            <div class="goToPreviousPage">
               <GoToPreviousPage>
                 {(props) => (
                   <button

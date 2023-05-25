@@ -56,29 +56,9 @@ export default function EmailSection(props) {
       <div class="sectionCardDragDrop">Firmantes</div>
       <EmailAdd handleAddItem={handleAddItem} />
       {error === 1 ? (
-        <div
-          style={{
-            backgroundColor: "#cb3234",
-            color: "white",
-            margin: "20px",
-            borderRadius: "23px",
-            padding: "10px",
-          }}
-        >
-          Error agregar almenos un email
-        </div>
+        <div class="errorEmail">Error agregar almenos un email</div>
       ) : null}
-      <div
-        style={{
-          backgroundColor: "#f4fbfe",
-          margin: "20px",
-          borderRadius: "23px",
-          padding: "10px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-end",
-        }}
-      >
+      <div class="containerEmail">
         {/* Con el componente EmailList estamos agregando los items a la lista,pasandolo mediante props */}
         <EmailList list={list} setList={setList} />
         <Button

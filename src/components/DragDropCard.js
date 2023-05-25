@@ -66,11 +66,7 @@ export default function DragDropCard(props) {
         <input {...getInputProps()} />
 
         <CloudUploadIcon sx={{ color: "#737373", fontSize: "60px" }} />
-        <p
-          style={{
-            color: "#737373",
-          }}
-        >
+        <p class="pDragDrop">
           Arrastra y suelta archivos aquí o haz click para seleccionar archivos
         </p>
       </div>

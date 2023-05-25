@@ -38,9 +38,7 @@ export default function SecondView(props) {
           </Paper>
         </Grid>
         <Grid item xs={12} md={4}>
-          <div
-            style={{ width: "100%", marginTop: "10px", marginBottom: "10px" }}
-          >
+          <div class="buttonShow">
             <Button onClick={toggleCard} variant="outlined">
               {/* Si cumple showCard,mostramos la ventana para ingresar emails */}
               {showCard ? "Ocultar lista emails" : "Mostrar lista emails"}

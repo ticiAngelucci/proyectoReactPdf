@@ -10,6 +10,8 @@ export default function EmailAdd(props) {
     e.preventDefault();
     handleAddItem({
       description,
+      done: false,
+      id: (+new Date()).toString(),
     });
     setDescription("");
   };
