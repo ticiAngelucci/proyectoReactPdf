@@ -7,14 +7,14 @@ import { Viewer, Worker } from "@react-pdf-viewer/core";
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
-import { useState } from "react";
 
 export default function PdfViewer(props) {
   const { pdf } = props;
-  const [file, setFile] = useState();
-
+  /* En este componente estaremos utilizando react-pdf-viewer para visualizar el prop con base64
+renderToolbar lo utilizaremos para customizar el toolbar que viene por defecto en esta libreria */
   const renderToolbar = (Toolbar) => (
     <Toolbar>
+      {/* Aca estamos llamando las funciones que utilizaremos para interactuar con el pdf como hacer zoom,minimizar pdf,cambiar pagina */}
       {(slots) => {
         const {
           CurrentPageInput,

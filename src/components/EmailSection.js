@@ -5,12 +5,16 @@ import React, { useState } from "react";
 import EmailAdd from "./emailComponents/EmailAdd";
 import EmailList from "./emailComponents/EmailList";
 
+/* Esta es la url del backend donde la enviaremos */
 const baseURL = "https://proyectoReact.com/civisign/serviciofirma";
 
 export default function EmailSection(props) {
   const { pdf } = props;
+  /* Crearemos error para poder encontrar errores si no hay un email agregado*/
   const [error, setError] = useState("null");
+  /* En esta parte estamos creando la data para poder enviarlo al backend */
   const createPost = () => {
+    /* Si la lista de emails se encuentra vacia,saltara un error y no podra enviarse */
     if (list.length !== 0) {
       pdf.map((data) => {
         axios
@@ -51,13 +55,19 @@ export default function EmailSection(props) {
     >
       <div class="sectionCardDragDrop">Firmantes</div>
       <EmailAdd handleAddItem={handleAddItem} />
-      {error === 1 ? <div style={{
-          backgroundColor: "#cb3234",
-          color: "white",
-          margin: "20px",
-          borderRadius: "23px",
-          padding: "10px",
-        }}>Error agregar almenos un email</div> : null}
+      {error === 1 ? (
+        <div
+          style={{
+            backgroundColor: "#cb3234",
+            color: "white",
+            margin: "20px",
+            borderRadius: "23px",
+            padding: "10px",
+          }}
+        >
+          Error agregar almenos un email
+        </div>
+      ) : null}
       <div
         style={{
           backgroundColor: "#f4fbfe",
@@ -69,6 +79,7 @@ export default function EmailSection(props) {
           alignItems: "flex-end",
         }}
       >
+        {/* Con el componente EmailList estamos agregando los items a la lista,pasandolo mediante props */}
         <EmailList list={list} setList={setList} />
         <Button
           sx={{

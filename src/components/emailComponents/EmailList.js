@@ -3,7 +3,7 @@ import React from "react";
 import Checkbox from "./Checkbox";
 export default function EmailList(props) {
   const { list, setList } = props;
-
+  /* Con onChangeStatus estamos editando el contenido del prop list (para eliminar algun email de la lista)  */
   const onChangeStatus = (e) => {
     const { name, checked } = e.target;
     const updateList = list.map((item) => ({
@@ -12,11 +12,13 @@ export default function EmailList(props) {
     }));
     setList(updateList);
   };
+  /* Mediante onClickRemoveItem estamos eliminando los registros seleccionados*/
   const onClickRemoveItem = (e) => {
     const updateList = list.filter((item) => !item.done);
     setList(updateList);
   };
-  const chk = list.map((item) => (
+  /* En listMapeo estamos creando la lista con su componente para que sea dinamica,depende de cuantos registros tenga list*/
+  const listMapeo = list.map((item) => (
     <div style={{ width: "60%" }}>
       <Checkbox key={item.id} data={item} onChange={onChangeStatus} />
       <hr></hr>
@@ -29,7 +31,7 @@ export default function EmailList(props) {
         Los siguientes contactos serán notificados para firmar el presente
         documento.
       </p>
-      {list.length ? chk : "No email"}
+      {list.length ? listMapeo : "No email"}
       {list.length ? (
         <Button onClick={onClickRemoveItem} variant="outlined" color="error">
           Eliminar

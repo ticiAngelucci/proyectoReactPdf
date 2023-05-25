@@ -7,7 +7,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
 import logo from "../img/logo.png";
-
+/* Aca creamos un navbar,que no le hemos indicado vinculos */
 export default function MenuAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>

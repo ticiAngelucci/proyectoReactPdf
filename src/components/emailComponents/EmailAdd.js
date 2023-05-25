@@ -4,6 +4,7 @@ import React, { useState } from "react";
 
 export default function EmailAdd(props) {
   const { handleAddItem } = props;
+  /* con handleSubmit estamos agregando el contenido del input type email (por ende no dejara de ingresar contenido que no tenga @) a description */
   const [description, setDescription] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,7 +14,7 @@ export default function EmailAdd(props) {
     setDescription("");
   };
   return (
-    <form style={{margin: "20px"}} onSubmit={handleSubmit}>
+    <form style={{ margin: "20px" }} onSubmit={handleSubmit}>
       <div
         style={{
           width: "100%",
@@ -32,9 +33,7 @@ export default function EmailAdd(props) {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-        <button class="add"
-          disabled={description ? "" : "disabled"}
-        >
+        <button class="add" disabled={description ? "" : "disabled"}>
           <AddIcon />
         </button>
       </div>

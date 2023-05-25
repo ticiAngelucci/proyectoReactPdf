@@ -4,6 +4,8 @@ import React, { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 
 export default function DragDropCard(props) {
+  /* En este componente estaremos utilizando la libreria react-dropzone para poder subir archivos pdf
+  En la funcion onDrop,estariamos convirtiendo la url a base 64 para poder pasarla por el prop */
   const onDrop = useCallback((acceptedFiles) => {
     acceptedFiles.forEach((file) => {
       const reader = new FileReader();
@@ -24,7 +26,7 @@ export default function DragDropCard(props) {
   }, []);
   const { acceptedFiles, getRootProps, getInputProps, fileRejections } =
     useDropzone({ onDrop, accept: { "application/pdf": [] }, maxFiles: 1 });
-
+  /* Aca visualizaremos si hay algun error al cargar el pdf */
   const fileRejectionItems = fileRejections.map(({ file, errors }) => {
     return (
       <li key={file.path}>
